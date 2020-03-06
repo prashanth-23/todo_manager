@@ -23,4 +23,13 @@ class TodosController < ApplicationController
     todo = Todo.find(id)
     render plain: todo.to_pleasant_string
   end
+
+  def update
+    id = params[:id]
+    completed = params[:completed]
+    todo = Todo.find(id)
+    todo[:completed] = completed
+    todo.save!
+    render plain: "updated todo status to #{todo.completed}"
+  end
 end
