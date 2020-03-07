@@ -30,6 +30,6 @@ class TodosController < ApplicationController
     todo = Todo.find(id)
     todo[:completed] = completed
     todo.save!
-    render plain: "updated todo status to #{todo.completed}"
+    render plain: "updated todo status to #{todo[:completed]}"
   end
 end
