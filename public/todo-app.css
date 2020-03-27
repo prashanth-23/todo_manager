@@ -71,11 +71,11 @@ body{
     align-items: center;
 }
 .TodoItem-checkbox{
-    width: 10px;
-    height: 10px;
-    margin-right: 6px;
+    width: 20px;
+    height: 20px;
 }
 .TodoDetail{
+    margin-left: 6px;
     margin-right: 8px;
     font-weight: 400;
     font-size: 14px;
@@ -96,5 +96,12 @@ body{
     margin-left: 8px;
     visibility: hidden;
 }
-
- 
+.TodoItem-Container:hover .TodoItem-delete{
+    visibility: visible;
+}
+.TodoItemContainer:hover{
+    background-color: #F1EDF7;
+}
+.TodoItem-delete > img {
+    width: 16px;
+}
