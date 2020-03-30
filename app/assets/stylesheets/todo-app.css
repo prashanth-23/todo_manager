@@ -74,22 +74,23 @@ body{
     width: 20px;
     height: 20px;
 }
-.TodoDetail{
-    margin-left: 6px;
+.TodoItem-text{
+    margin-left: 8px;
     margin-right: 8px;
     font-weight: 400;
     font-size: 14px;
 }
-.TodoDate{
+.completed-TodoItem-text{
+    margin-left: 8px;
+    margin-right: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: line-through;
+}
+.TodoItem-due_date{
     font-weight: 100;
     font-size: 14px;
     font-size: 12px;
-    margin-left: 10px;
-}
-.TodoItem-overdueLabel{
-    font-size: 12px;
-    display: inline;
-    color: #C53030;
     margin-left: 10px;
 }
 .TodoItem-delete{
