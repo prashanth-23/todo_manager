@@ -1,22 +1,17 @@
 <section class="TodoSection">
-            <div class="TodoSectionTitle">
-                    <p class="TodoSectionTitle-text"><%= section_title%></p>
-                    <p class="TodoSectionTitle-remainingCount"><%=todos.completed.count%>/<%=todos.count%></p>
-            </div>
-
-
-            <ul>
+        <div class="TodoSectionTitle">
+                <p class="TodoSectionTitle-text"><%= section_title%></p>
+                <p class="TodoSectionTitle-remainingCount"><%=todos.completed.count%>/<%=todos.count%></p>
+        </div>
+        <ul>
             <% todos.all.each do |todo|%>
                 <li class="TodoItem">
                     <div class="TodoItem-Container">
 
-                    <%if todo.completed%>
-                        <input class="TodoItem-checkbox" type="checkbox" checked>
-                        <p class="completed-TodoItem-text"><%=todo.todo_text%></p>
-                    <%else%>
-                        <input class="TodoItem-checkbox" type="checkbox">
-                        <p class="TodoItem-text"><%=todo.todo_text%></p>
-                    <%end%>
+                    <%class_name=todo.completed ? "completed-TodoItem-text" : "TodoItem-text"%>
+
+                    <input class="TodoItem-checkbox" type="checkbox" <%="checked" if todo.completed%>>
+                    <p class=<%=class_name%>><%=todo.todo_text%></p>
 
                     <% if show_due_date%>
                     <p class ="TodoItem-due_date"><%= todo.due_date.to_s(:short)%><p>
@@ -25,5 +20,5 @@
                     </div>
                 </li>
             <% end%>
-            </ul>
+        </ul>
 </section>
