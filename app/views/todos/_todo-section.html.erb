@@ -8,7 +8,7 @@
                 <li class="TodoItem">
                     <div class="TodoItem-Container">
 
-                    <%class_name=todo.completed ? "completed-TodoItem-text" : "TodoItem-text"%>
+                    <%class_name = todo.completed ? "completed-TodoItem-text" : "TodoItem-text"%>
 
                     <input class="TodoItem-checkbox" type="checkbox" <%="checked" if todo.completed%>>
                     <p class=<%=class_name%>><%=todo.todo_text%></p>
