@@ -7,33 +7,30 @@
             <% todos.all.each do |todo|%>
                 <li class="TodoItem">
                     <div class="TodoItem-Container">
-                    <%= form_with(url: "/todos/#{todo.id}",method: "put") do%>
 
+                        <%= form_with(url: "/todos/#{todo.id}",method: "put") do%>
+                          <%=check_box_tag(
+                             name= "completed",
+                             value= "1",
+                             checked = todo.completed,
+                             options = {
+                                  onclick: "this.form.submit()",
+                                  class: "TodoItem-checkbox"
+                                        })
+                           %>
+                        <%end%>
 
-                    <%=check_box_tag(
-                        name= "completed",
-                        value= "1",
-                        checked = todo.completed,
-                        options = {
-                            onclick: "this.form.submit()",
-                            class: "TodoItem-checkbox"})
-                     %>
+                        <p class='<%=todo.completed ? "completed-TodoItem-text" : "TodoItem-text"%>'><%=todo.todo_text%></p>
 
+                        <% if show_due_date%>
+                            <p class ="TodoItem-due_date"><%= todo.due_date.to_s(:short)%><p>
+                        <% end%>
 
-                    <%end%>
-
-
-                    <p class='<%=todo.completed ? "completed-TodoItem-text" : "TodoItem-text"%>'><%=todo.todo_text%></p>
-                    <% if show_due_date%>
-                    <p class ="TodoItem-due_date"><%= todo.due_date.to_s(:short)%><p>
-                    <% end%>
-
-                    <a href="javascript:void(0)" class="TodoItem-delete">
-                    <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
-                        <%=image_submit_tag 'TrashIcon.svg'%>
-                    <%end%>
-                    </a>
-
+                         <a href="javascript:void(0)" class="TodoItem-delete">
+                            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+                              <%=image_submit_tag 'TrashIcon.svg'%>
+                            <%end%>
+                         </a>
                     </div>
                 </li>
             <% end%>
