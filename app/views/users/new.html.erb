@@ -1,4 +1,5 @@
 <h1 class="Form-Title">Sign up as a new user</h1>
+<section class ="UsersNew">
 <%= form_with(url: "/users",method: "post") do%>
   <div class="Form-Section">
     <p class="Input-Label">First Name</p>
@@ -19,3 +20,4 @@
 
   <%=submit_tag 'Sign-up',class:"Form-Submit"%>
 <%end%>
+</section>
