@@ -1,6 +1,8 @@
 require "date"
 
-class Todo < ActiveRecord::Base
+class Todo < ApplicationRecord
+  belongs_to :user
+
   def due_today?
     due_date == Date.today
   end
