@@ -8,17 +8,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    first_name = params[:first_name]
-    last_name = params[:last_name]
-    email = params[:email]
-    password = params[:password]
-    new_user = User.create!(
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password_digest: password,
+    User.create!(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: [:password],
     )
-    redirect_to users_path
   end
 
   def check
