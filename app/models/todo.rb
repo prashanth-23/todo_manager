@@ -1,6 +1,10 @@
 require "date"
 
 class Todo < ApplicationRecord
+  validates :todo_text, presence: true
+  validates :todo_text, length: { minimum: 2 }
+  validates :due_date, presence: true
+
   belongs_to :user
 
   def due_today?
@@ -12,14 +16,14 @@ class Todo < ApplicationRecord
   end
 
   def self.overdue_list
-    where("due_date < ? and (not completed)", Date.today)
+    all.where("due_date < ? and (not completed)", Date.today)
   end
 
   def self.due_today_list
-    where("due_date = ?", Date.today)
+    all.where("due_date = ?", Date.today)
   end
 
   def self.due_later_list
-    where("due_date > ?", Date.today)
+    all.where("due_date > ?", Date.today)
   end
 end

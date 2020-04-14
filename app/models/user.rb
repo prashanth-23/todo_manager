@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :todos
-
-  def to_pleasant_string
-    "#{id}.#{first_name}-#{last_name},#{email},#{password_digest}"
-  end
+  validates :first_name, presence: true
+  validates :email, presence: true
 end
