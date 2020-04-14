@@ -12,10 +12,16 @@
   <body>
     <% if @current_user %>
      <p class="UserHeader">
-     Hello <%= @current_user.first_name%>
-     <%= link_to "sign-out", destroy_session_path ,method: "delete" %>
-      </p>
-      <%end%>
+      Hello
+      <%= @current_user.first_name%>
+      <%= link_to "sign-out", destroy_session_path ,method: "delete" %>
+     </p>
+    <%end%>
+    <%if flash[:error]%>
+     <p class="Invalid-details">
+      <%=flash[:error]%>
+     </p>
+    <%end%>
     <%= yield %>
   </body>
 </html>

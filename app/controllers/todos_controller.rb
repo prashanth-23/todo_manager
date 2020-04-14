@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   def index
+    @todos = current_user.todos
+    render "index"
   end
 
   def create
@@ -9,6 +11,7 @@ class TodosController < ApplicationController
       todo_text: todo_text,
       due_date: due_date,
       completed: false,
+      user_id: session[:current_user_id],
     )
     redirect_to todos_path
   end
@@ -16,7 +19,7 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
-    todo = Todo.find(id)
+    todo = current_user.todos.find(id)
     todo[:completed] = completed
     todo.save!
     redirect_to todos_path
@@ -24,7 +27,7 @@ class TodosController < ApplicationController
 
   def destroy
     id = params[:id]
-    todo = Todo.find(id)
+    todo = current_user.todos.find(id)
     todo.destroy
     redirect_to todos_path
   end
