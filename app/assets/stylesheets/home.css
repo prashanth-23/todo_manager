@@ -1,6 +1,7 @@
 .Home-title{
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 30px;
+  color: rgb(18, 35, 41);
 }
 .Home-authenticate{
   font-size: 16px;
@@ -10,12 +11,18 @@
   padding: 10px;
   background-color: lightgray;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  border-radius: 10px;
 }
-.Invalid-details{
+.Flash-error{
   font-size: 16px;
   margin-bottom: 16px;
   color: darkred;
+}
+.Flash-success{
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: darkgreen;
 }

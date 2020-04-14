@@ -14,11 +14,15 @@
      <p class="UserHeader">
       Hello
       <%= @current_user.first_name%>
+      :)
       <%= link_to "sign-out", destroy_session_path ,method: "delete" %>
      </p>
     <%end%>
     <%if flash[:error]%>
-     <p class="Invalid-details"><%=flash[:error]%></p>
+     <p class="Flash-error"><%=flash[:error]%></p>
+    <%end%>
+    <%if flash[:success]%>
+     <p class="Flash-success"><%=flash[:success]%></p>
     <%end%>
     <%= yield %>
   </body>

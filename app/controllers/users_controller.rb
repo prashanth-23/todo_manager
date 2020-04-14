@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if new_user.save
+      flash[:success] = "signed up successfully and logged in automatically,please use your credentails for logging in next time :)"
       session[:current_user_id] = new_user.id
       redirect_to todos_path
     else
