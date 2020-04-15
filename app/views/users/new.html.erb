@@ -1,22 +1,43 @@
-<h1 class="Form-Title">Sign up as a new user</h1>
-<section class ="UsersNew">
-  <%= form_with(url: "/users",method: "post") do%>
-   <div class="Form-Section">
-    <p class="Input-Label">First Name</p>
-    <%=text_field_tag 'first_name',nil,placeholder:"first_name",class:"Form-Input"%>
+<h1 class = "Form-Title">Sign up as a new user</h1>
+<section class = "UsersNew">
+  <%= form_with(url: "/users", method: "post") do %>
+   <div class = "Form-Section">
+    <p class = "Input-Label">
+      First Name
+    </p>
+    <%= text_field_tag 'first_name', nil,
+                       autofocus: true,
+                       placeholder: "first_name",
+                       class: "Form-Input"
+    %>
    </div>
-   <div class="Form-Section">
-    <p class="Input-Label">Last Name</p>
-    <%=text_field_tag 'last_name',nil,placeholder:"last_name",class:"Form-Input"%>
+   <div class = "Form-Section">
+    <p class="Input-Label">
+      Last Name
+    </p>
+    <%= text_field_tag  'last_name', nil,
+                        placeholder: "last_name",
+                        class: "Form-Input"
+    %>
    </div>
-   <div class="Form-Section">
-    <p class="Input-Label">Email</p>
-    <%=email_field_tag 'email',nil,placeholder:"email",class:"Form-Input"%>
+   <div class = "Form-Section">
+    <p class = "Input-Label">
+      Email
+    </p>
+    <%= email_field_tag 'email', nil,
+                        placeholder: "email",
+                        class:"Form-Input"
+    %>
    </div>
-   <div class="Form-Section">
-    <p class="Input-Label">Password</p>
-    <%=password_field_tag 'password',nil,placeholder:"password",class:"Form-Input"%>
+   <div class = "Form-Section">
+    <p class = "Input-Label">
+      Password
+    </p>
+    <%= password_field_tag  'password', nil,
+                            placeholder: "password",
+                            class: "Form-Input"
+    %>
    </div>
-   <%=submit_tag ' Sign-up ',class:"Form-Submit"%>
-  <%end%>
+   <%= submit_tag ' Sign-up ', class: "Form-Submit" %>
+  <% end %>
 </section>
